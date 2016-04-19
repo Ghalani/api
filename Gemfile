@@ -12,6 +12,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'active_model_serializers', '~> 0.10.0.rc3'
+
 group :development, :test do
   gem 'byebug'
 end
