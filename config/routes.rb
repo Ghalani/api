@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   root 'root#index'
-  # for any other route
+  #resources :todos, except: [:new, :edit]
   match '*a', :to => 'errors#routing', via: [:get, :post, :put, :patch, :delete, :options, :head]
 end
