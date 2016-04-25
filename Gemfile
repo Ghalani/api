@@ -4,11 +4,14 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5.1'
 
 gem 'rails-api'
+gem 'rack-cors'
 
 gem 'spring', :group => :development
 
 
 gem 'pg'
+gem 'active_model_serializers', '~> 0.8.1'
+gem 'slack-notifier'
 
 group :production do
   gem 'rails_12factor'
