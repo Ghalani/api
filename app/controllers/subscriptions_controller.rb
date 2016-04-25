@@ -1,6 +1,5 @@
 class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:show, :update, :destroy]
-
   # GET /subscriptions
   # GET /subscriptions.json
   def index
@@ -24,7 +23,7 @@ class SubscriptionsController < ApplicationController
       render json: @subscription, status: :created, location: @subscription
       BackendSlackbotService.new.send("New subscription by: #{@subscription.email}")
     else
-      render json: {errors: {message: @subscription.errors[:email]}}, status: :unprocessable_entity
+       redirect_to controller: "errors", action: "unprocessable_entity"
     end
   end
 
