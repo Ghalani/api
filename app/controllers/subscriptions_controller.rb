@@ -23,7 +23,12 @@ class SubscriptionsController < ApplicationController
       render json: @subscription, status: :created, location: @subscription
       BackendSlackbotService.new.send("New subscription by: #{@subscription.email}")
     else
-       redirect_to controller: "errors", action: "unprocessable_entity"
+      render json: {
+        errors: [{
+          message: @subscription.errors[:email],
+          status: "422"
+        }]
+      }, status: :unprocessable_entity
     end
   end
 
