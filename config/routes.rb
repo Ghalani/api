@@ -1,5 +1,23 @@
 Rails.application.routes.draw do
+  get 'countries/index'
+
+  get 'countries/show'
+
+  resources :users, except: [:new, :edit]
+  resources :organizations, except: [:new, :edit] do
+      resources :regions, except: [:new, :edit]
+      resources :managers, except: [:new, :edit]
+  end
+  resources :regions, except: [:new, :edit] do
+    resources :farms, except: [:new, :edit]
+  end
+  resources :managers, except: [:new, :edit] do
+    resources :drivers, except: [:new, :edit]
+    resources :pickups, except: [:new, :edit]
+    resources :farmers, except: [:new, :edit]
+  end
   resources :subscriptions, except: [:new, :edit]
+  resources :countries
   root 'root#index'
   #resources :todos, except: [:new, :edit]
 

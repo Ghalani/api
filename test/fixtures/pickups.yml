@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_coord: 
+  end_coord: 
+  start_date_time: 
+  delivery_date_time: 
+
+two:
+  start_coord: 
+  end_coord: 
+  start_date_time: 
+  delivery_date_time: 
