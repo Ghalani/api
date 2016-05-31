@@ -4,9 +4,9 @@ class PickupsController < ApplicationController
   # GET /pickups
   # GET /pickups.json
   def index
-    manager = Manager.find_by_id(params[:manager_id])
-    if manager
-      @pickups = Pickup.all
+    driver = Driver.find_by_id(params[:driver_id])
+    if driver
+      @pickups = driver.pickups
       render json: @pickups
     else
       head :not_found
@@ -23,7 +23,8 @@ class PickupsController < ApplicationController
   # POST /pickups.json
   def create
     @pickup = Pickup.new(pickup_params)
-    @pickup.manager_id = params[:manager_id]
+    @pickup.driver_id = params[:driver_id]
+    @pickup.manager_id = @pickup.driver.manager_id #Driver.find_by_id(params[:driver_id]).manager_id
 
     if @pickup.save
       render json: @pickup, status: :created
@@ -59,6 +60,6 @@ class PickupsController < ApplicationController
     end
 
     def pickup_params
-      params.require(:pickup).permit(:start_coord, :end_coord, :start_date_time, :delivery_date_time)
+      params.require(:pickup).permit(:title, :description, :start_date_time, :delivery_date_time)
     end
 end

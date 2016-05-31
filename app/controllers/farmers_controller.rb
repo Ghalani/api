@@ -18,7 +18,6 @@ class FarmersController < ApplicationController
   def create
     @farmer = Farmer.new(farmer_params)
     @farmer.manager_id = params[:manager_id]
-
     if @farmer.save
       render json: @farmer, status: :created
     else

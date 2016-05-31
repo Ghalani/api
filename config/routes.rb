@@ -13,8 +13,10 @@ Rails.application.routes.draw do
   end
   resources :managers, except: [:new, :edit] do
     resources :drivers, except: [:new, :edit]
-    resources :pickups, except: [:new, :edit]
     resources :farmers, except: [:new, :edit]
+  end
+  resources :drivers, except: [:new, :edit] do
+    resources :pickups, except: [:new, :edit]
   end
   resources :subscriptions, except: [:new, :edit]
   resources :countries
