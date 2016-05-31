@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manager_id: MyString
+  farm_id: MyString
+  fname: MyString
+  lname: MyString
+  phone: MyString
+
+two:
+  manager_id: MyString
+  farm_id: MyString
+  fname: MyString
+  lname: MyString
+  phone: MyString
